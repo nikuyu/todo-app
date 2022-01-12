@@ -13,11 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('tasks.index');
-});
+Route::get('/', 'App\Http\controllers\TasksController@index' ) ;
 
-Route::get('/tasks/create', function () {
-    return view('tasks.create');
+Route::get('/tasks', 'App\Http\controllers\TasksController@index' ) ;
+
+Route::get('/tasks/create', 'App\Http\controllers\TasksController@create' ) ;
+
+Route::post('/tasks','App\Http\controllers\TasksController@store' ) ;
     
-});
