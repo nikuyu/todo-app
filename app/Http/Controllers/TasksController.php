@@ -8,7 +8,13 @@ use Illuminate\Http\Request;
 class TasksController extends Controller
 {
     public function index() {
-        return view('tasks.index');
+
+        $tasks =Task::orderBy('id' , 'DESC')
+        ->get();
+    
+        return view('tasks.index' , [
+           'tasks' => $tasks,
+        ]);
     }
 
     public function create() {
@@ -19,6 +25,8 @@ class TasksController extends Controller
         $task = Task::create([
             'description' => request('description'),
         ]);
-        return dd($task) ;
+
+
+        return redirect('/') ;
     }
 }
