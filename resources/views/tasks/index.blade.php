@@ -9,7 +9,7 @@
     <div class="card" style="margin-bottom: 20px; ">
     <div class="card-body">
     <p>{{ $task->description}}</p>
-    <a href="#" class="btn btn-info">Complete</a>
+    <a href="#" class="btn btn-info d-grid gap-2">Complete</a>
      </div>
     </div>
    
