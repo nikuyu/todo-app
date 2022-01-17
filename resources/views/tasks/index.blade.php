@@ -6,10 +6,21 @@
 
     @foreach($tasks as $task)
 
-    <div class="card" style="margin-bottom: 20px; ">
+    <div class="card @if($task->isCompleted()) border-success  @endif" style="margin-bottom: 20px; ">
     <div class="card-body">
-    <p>{{ $task->description}}</p>
-    <a href="#" class="btn btn-info d-grid gap-2">Complete</a>
+        <p>
+         {{ $task->description}}
+        </p>
+    
+    <form action="/tasks/{{ $task->id }}" method="POST">
+        @method('PATCH')
+        @csrf
+        @if(!$task->isCompleted())
+        <div class="d-grid gap-2">
+    <button class="btn btn-info " input="submit" >Complete</button>
+        </div>
+        @endif
+    </form>
      </div>
     </div>
    

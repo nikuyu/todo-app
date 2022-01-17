@@ -21,3 +21,4 @@ Route::get('/tasks/create', 'App\Http\controllers\TasksController@create' ) ;
 
 Route::post('/tasks','App\Http\controllers\TasksController@store' ) ;
     
+Route::patch('/tasks/{id}', 'App\Http\controllers\TasksController@update');
